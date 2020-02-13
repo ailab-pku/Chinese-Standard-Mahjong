@@ -2,7 +2,7 @@
 
 README: [English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/README.md) | [中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/README-zh.md)
 
-National Standard Mahjong Competition hosted by AILab in Peking University and WEIZHIYU (Beijing) Technology Co., Ltd.
+This National Standard Mahjong Competition is hosted by AILab in Peking University and WEIZHIYU (Beijing) Technology Co., Ltd.
 
 Click [here](https://www.botzone.org.cn/static/gamecontest2020a.html) to navigate to the Mahjong Competition on Botzone. 
 
