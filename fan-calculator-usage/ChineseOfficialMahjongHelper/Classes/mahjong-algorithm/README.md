@@ -1,45 +1,48 @@
-mahjong-algorithm 关于麻将的各种算法
+Mahjong-algorithm
 =========
 
-## 说明
-- 这些算法虽然是用C++写的，但并未使用C++的容器，可以很方便改写为其他语言。
-- fan_calculator 为算番相关。
-- shanten 为判断听牌、听牌计算、上听数计算、有效牌计算。
-- stringify 为字符串转化相关。
-- 详见unit_test.cpp。
+README:[English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md)|[中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README-zh.md)
 
-## 常见相关术语解释
-- 顺子：数牌中，花色相同序数相连的3张牌。
-- 刻子：三张相同的牌。碰出的为明刻，未碰出的为暗刻。俗称坎。杠也算刻子，明杠算明刻，暗杠算暗刻。
-- 面子：顺子和刻子的统称。俗称一句话、一坎牌。
-- 雀头：基本和牌形式中，单独组合的对子，也叫将、眼。
-- 基本和型：4面子1雀头的和牌形式。
-- 特殊和型：非4面子1雀头的和牌形式，在国标规则中，有七对、十三幺、全不靠等特殊和型。
-- 门清：也叫门前清，指不吃、不碰、不明杠的状态。特殊和型必然是门清状态。暗杠虽然不破门清，但会暴露出手牌不是特殊和型的信息。
-- 副露：吃牌、碰牌、杠牌的统称，即利用其他选手打出的牌完成自己手牌面子的行为，一般不包括暗杠，也叫鸣牌，俗称动牌。副露有时候也包括暗杠，此时将暗杠称为之暗副露，而吃、碰、明杠称为明副露。
-- 立牌：整个手牌除去吃、碰、杠之后的牌。
-- 手牌：包括立牌和吃、碰、杠的牌，有时仅指立牌。
-- 听牌：只差所需要的一张牌即能和牌的状态。俗称下叫、落叫、叫和（糊）。
-- 一上听：指差一张就能听牌的状态，也叫一向听、一入听。以此类推有二上听、三上听、N上听。
-- 上听数：达到听牌状态需要牌的张数。
-- 有效牌：能使上听数减少的牌，也称进张牌、上张牌。
-- 改良牌：能使有效牌增加的牌。通俗来说就是能使进张面变宽的牌。
-- 对子：两张相同的牌。雀头一定是对子，但对子不一定是雀头。
-- 两面：①数牌中，花色相同数字相邻的两张牌，如45m，与两侧的牌都构成顺子。也叫两头。②“两面搭子”的简称。
-- 嵌张：①数牌中，花色相同数字相隔1的两张牌，如57s，只能与中间的牌构成顺子，中间的这张牌称为嵌张。②“嵌张搭子”的简称。③国标麻将的“坎张”番种。
-- 边张：①也是数字相邻的两张牌，但由于处在数字的最小或最大边界位置，只能与一侧的牌构成顺子，如12m只能与3m构成顺子、89s只能与7s构成顺子，这张3m或者7s便称为边张。②“边张搭子”的简称。③国标麻将的“边张”番种。
-- 搭子：指差一张牌就能构成1组面子的两张牌。其形态有两面搭子、嵌张搭子、边张搭子，有时也可将对子看成是刻子搭子。
-- 复合搭子：3张或3张以上牌构成的搭子。常见的有：连嵌张、两面带对子、嵌张带对子、边张带对子等等形态。
-- 对倒：听牌时，其他牌都已经构成面子，剩余两对，只需任意一对成刻即可和牌，此时另一对充当雀头，这种听牌形态叫对倒，也叫双碰、对碰、对杵。
+## Introduction
+Though written in C++, the code doesn't contain STL. It is easy to use in other languages.
+- fan_calculator
+  - calculate the combination of tiles in hand.
+- shanten: 
+  - check whether the player is waiting to win.
+  - calculate which tiles can make Mahjong.
+  - calculate the distance to making Mahjong.
+  - calculate which tiles in hand are effective.
+- stringify: 
+  - string convertion.
+- For more details, please read unit_test.cpp.
 
-## 字符串化说明
- - 数牌：万=m 条=s 饼=p。后缀使用小写字母，一连串同花色的数牌可合并使用用一个后缀，如123m、678s等等。
- - 字牌：东南西北=ESWN，中发白=CFP。使用大写字母。亦兼容天凤风格的后缀z，但按中国习惯顺序567z为中发白。
- - 吃、碰、杠用英文\[\]，可选用逗号+数字表示供牌来源。具体规则如下：
-   - 吃：由于只能吃上家，逗号后的数字表示第几张牌是由上家打出，例如：\[567m,2\]表示57万吃6万（第2张），对于不指定数字的，默认第1张为上家打出。
-   - 碰：逗号后的数字表示由哪家打出，根据从左到右的直观顺序，1为上家，2为对家，3为下家，例如：\[999s,3\]表示碰下家的9条。对于不指定数字的，默认为上家打出。
-   - 杠：与碰类似，但对于不指定数字的，则认为是暗杠。例如：\[SSSS\]表示暗杠南；\[8888p,1\]表示大明杠上家的8饼。当数字为5、6、7时，表示加杠。例如：\[1111s,6\]表示碰对家的1条后，又摸到1条加杠。
- - 范例：
+## Terminology 
+- Claiming a tile
+  - Sequence / Chow: 3 consecutive tiles of the same suit, like < Dot 2, Dot3, Dot 4 >.
+  - Pung: The same 3 tiles of the same kind.
+  - Kong: The same 4 tiles of the same kind. The exposed Kong uses the tile discarded by others. The concealed Kong means that one has the same 4 tiles, and it belongs to Concealed hand introduced below.
+- Concealed hand: No Chow, Pung or exposed Kong.
+- Meld: The collective name of Sequence, Pung and Kong. 
+- Pair: The same 2 tiles of the same kind.
+- Basic combination: 4 Melds and 1 pair.
+- Special combination: Seven Pairs, Thirteen Orphans, Lesser Honours and Knitted Tiles, etc.
+- Tiles in hand: The tiles excluding declared chows, pungs, and kongs.
+- All hand tiles: All the tiles owned by the player, including declared chows, pungs, and kongs.
+- Ready hand / Waiting to win: The distance between all hand tiles and winning hands.
+- N shanten: Change N tiles, the hand tiles is waiting to win.
+- Effective tiles: The tiles which could decrease the number of shanten.
+- Improved tiles: The tiles which could increase the number of effective tiles.
+
+
+## Stringify
+ - Suits: Character=m, Bamboo=s, Dot=p. In this tool we use lowercase character as suffic. If a series of tiles are of the same suit, we can simplify 1m2m3m as 123m.
+ - Direction/Wind and Cardinal Tiles: 
+    - East=E / 1z, South=S / 2z, West=W / 3z, North=N / 4z.  
+    - Red Dragon=C / 5z, Green Dragon=F / 6z, White Dragon=P / 7z.
+ - Chow: The player can only chows the opponent in the left. We use \[567m,2\] to represent the player forming a sequence of 5m, 6m, and 7m. 2 represents that the 6m is the tile discarded in the last turn. If there is no 2, the default discard is the first tile, i.e., 5m.
+ - Pung: We use \[999s,3\] to represent that the player forms a pung of 9s by the tile discarded by the opponent in the right (the number 3). Number 2 refers to the opponent in the opposite, and number 1 refers to the opponent in the left. The default number is 1.
+ - Kong: It is similar as Pung.However, if there is no specific number, it is be considered as a concealed kong. E.g., \[SSSS\] represents a concealed kong of South. \[8888p,1\] represents forming a exposed kong by the 8p discarded by the opponent in the left. When the number is 5/6/7, it means pung to kong. E.g., \[1111s,6\] represents that the player formed a pung of 1s by the discard from the opponent in the opposite, and in the following turn, he draws the 4th 1s and decides to change the declared pung to kong.
+ - Examples:
    - \[EEEE\]\[CCCC\]\[FFFF\]\[PPPP\]NN
    - 1112345678999s9s
    - \[WWWW,1\]\[444s\]45m678pFF6m
