@@ -1,6 +1,6 @@
-# National-Standard-Mahjong
+# Chinese-Standard-Mahjong
 
-README: [English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/README.md) | [中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/README-zh.md)
+README: [English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/README.md) | [中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/README-zh.md)
 
 此项目提供的资料为北京大学网络所人工智能实验室与微智娱（北京）科技有限公司联合举办的国标麻将比赛。
 
@@ -30,10 +30,10 @@ README: [English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/ma
 
 我们在此项目中提供了以下资料：
 
-- [Fan calculator 算番器](https://github.com/ailab-pku/National-Standard-Mahjong/tree/master/fan-calculator-usage)：这引自[ChineseOfficialMahjongHelper](https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm)。在这一文件夹中，我们提供了C++和python版的使用样例代码。
-- [Judge Program 裁判程序](https://github.com/ailab-pku/National-Standard-Mahjong/tree/master/judge)：[点此查看](https://wiki.botzone.org.cn/index.php?title=%E8%A3%81%E5%88%A4)Botzone裁判程序维基资料。
-- [Mahjong Rules 麻将规则](https://github.com/ailab-pku/National-Standard-Mahjong/tree/master/mahjong-rules)：我们提供了中英文的麻将番种说明。[点此查看](https://wiki.botzone.org.cn/index.php?title=National-Standard-Mahjong)Botzone上的国标麻将游戏说明。
-- [Sample bot 样例bot程序](https://github.com/ailab-pku/National-Standard-Mahjong/tree/master/sample-bot-Botzone)：这是Botzone上的样例bot程序。
+- [Fan calculator 算番器](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/fan-calculator-usage)：这引自[ChineseOfficialMahjongHelper](https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm)。在这一文件夹中，我们提供了C++和python版的使用样例代码。
+- [Judge Program 裁判程序](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/judge)：[点此查看](https://wiki.botzone.org.cn/index.php?title=%E8%A3%81%E5%88%A4)Botzone裁判程序维基资料。
+- [Mahjong Rules 麻将规则](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules)：我们提供了中英文的麻将番种说明。[点此查看](https://wiki.botzone.org.cn/index.php?title=National-Standard-Mahjong)Botzone上的国标麻将游戏说明。
+- [Sample bot 样例bot程序](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/sample-bot-Botzone)：这是Botzone上的样例bot程序。
 
 ## 贡献者
 
