@@ -32,7 +32,7 @@ README: [English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/mas
 
 - [Fan calculator 算番器](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/fan-calculator-usage)：这引自[ChineseOfficialMahjongHelper](https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm)。在这一文件夹中，我们提供了C++和python版的使用样例代码。
 - [Judge Program 裁判程序](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/judge)：[点此查看](https://wiki.botzone.org.cn/index.php?title=%E8%A3%81%E5%88%A4)Botzone裁判程序维基资料。
-- [Mahjong Rules 麻将规则](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules)：我们提供了中英文的麻将番种说明。[点此查看](https://wiki.botzone.org.cn/index.php?title=National-Standard-Mahjong)Botzone上的国标麻将游戏说明。
+- [Mahjong Rules 麻将规则](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules)：我们提供了中英文的麻将番种说明。[点此查看](https://wiki.botzone.org.cn/index.php?title=Chinese-Standard-Mahjong)Botzone上的国标麻将游戏说明。
 - [Sample bot 样例bot程序](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/sample-bot-Botzone)：这是Botzone上的样例bot程序。
 
 ## 贡献者
