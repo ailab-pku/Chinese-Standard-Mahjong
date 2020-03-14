@@ -32,7 +32,7 @@ The codes are provided:
 
 - [Fan calculator](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/fan-calculator-usage): The is forked from [ChineseOfficialMahjongHelper](https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm). We provide the usage of this tool in C++ and python.
 - [Judge Program](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/judge): Click to get more details about [Judge on Botzone](https://wiki.botzone.org.cn/index.php?title=%E8%A3%81%E5%88%A4/en).
-- [Mahjong Rules](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules): We provide the instructions of Mahjong in Chinese and English. Click to get more information about [Chinese Standard Mahjong on Botzone](https://wiki.botzone.org.cn/index.php?title=National-Standard-Mahjong/en).
+- [Mahjong Rules](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules): We provide the instructions of Mahjong in Chinese and English. Click to get more information about [Chinese Standard Mahjong on Botzone](https://wiki.botzone.org.cn/index.php?title=Chinese-Standard-Mahjong/en).
 - [Sample bot](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/sample-bot-Botzone): This is the sample bot program on Botzone.
 
 ## Contributing
