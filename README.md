@@ -35,6 +35,12 @@ The codes are provided:
 - [Mahjong Rules](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules): We provide the instructions of Mahjong in Chinese and English. Click to get more information about [Chinese Standard Mahjong on Botzone](https://wiki.botzone.org.cn/index.php?title=Chinese-Standard-Mahjong/en).
 - [Sample bot](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/sample-bot-Botzone): This is the sample bot program on Botzone.
 
+## WeChat QRCode
+
+Follow our account on Wechat to keep updated on the latest competition news and trending topics.
+
+![avatar](https://www.botzone.org.cn/images/qrcode_for_gh_3a40a410124d_258.jpg)
+
 ## Contributing
 
 @ailab-pku

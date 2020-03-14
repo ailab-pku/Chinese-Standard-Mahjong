@@ -35,6 +35,12 @@ README: [English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/mas
 - [Mahjong Rules 麻将规则](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/mahjong-rules)：我们提供了中英文的麻将番种说明。[点此查看](https://wiki.botzone.org.cn/index.php?title=Chinese-Standard-Mahjong)Botzone上的国标麻将游戏说明。
 - [Sample bot 样例bot程序](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/master/sample-bot-Botzone)：这是Botzone上的样例bot程序。
 
+## 微信公众号
+
+欢迎关注Botzone官方公众号，接收最新比赛通知！
+
+![avatar](https://www.botzone.org.cn/images/qrcode_for_gh_3a40a410124d_258.jpg)
+
 ## 贡献者
 
 @ailab-pku
