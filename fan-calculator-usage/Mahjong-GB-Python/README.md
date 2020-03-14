@@ -1,29 +1,23 @@
-Mahjong Fan Calculator CPP
+Mahjong Fan Calculator Python
 =====
 
-README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README-zh.md)
+README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-Python/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-Python/README-zh.md)
 
-The usage is shown in test.cpp
+```Python
+from MahjongGB import MahjongFanCalculator
 
-```cpp
-#include "MahjongGB/MahjongGB.h"
-
-// Init
-void MahjongInit();  
-
-// Fan calculator
-vector<pair<int, string> > MahjongFanCalculator(
-    vector<pair<string, pair<string, int> > > pack,
-    vector<string> hand,
-    string winTile,
-    int flowerCount,
-    bool isZIMO,
-    bool isJUEZHANG,
-    bool isGANG,
-    bool isLAST,
-    int menFeng,
-    int quanFeng
-);
+# Fan calculator
+((value,descripthon),...) MahjongFanCalculator(
+    pack=((packType,tileCode,data),...),
+    hand=(tileCode,...),
+    winTile,
+    flowerCount,
+    isZIMO,
+    isJUEZHANG,
+    isGANG,
+    isLAST,
+    menFeng,
+    quanFeng)
 ```
 
 - pack: The declared tiles. Each pair in the vector consists of a string ("PENG", "GANG", or "CHI") and another pair which contains the information of the declared tiles. Click [here](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md) for details.

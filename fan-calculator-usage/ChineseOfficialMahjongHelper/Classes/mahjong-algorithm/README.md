@@ -1,7 +1,7 @@
 Mahjong-algorithm
 =========
 
-README:[English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md)|[中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README-zh.md)
+README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README-zh.md)
 
 ## Introduction
 Though written in C++, the code doesn't contain STL. It is easy to use in other languages.

@@ -1,7 +1,7 @@
 Mahjong Fan Calculator CPP
 =====
 
-README:[English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README.md)|[中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README-zh.md)
+README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README-zh.md)
 
 
 

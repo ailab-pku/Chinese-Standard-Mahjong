@@ -1,7 +1,7 @@
 mahjong-algorithm 关于麻将的各种算法
 =========
 
-README:[English](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md)|[中文](https://github.com/ailab-pku/National-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README-zh.md)
+README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README-zh.md)
 
 ## 说明
 - 这些算法虽然是用C++写的，但并未使用C++的容器，可以很方便改写为其他语言。
