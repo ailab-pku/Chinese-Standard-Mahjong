@@ -24,6 +24,7 @@ int main()
     string stmp;
 #if SIMPLEIO
     cin >> turnID;
+    turnID--;
     getline(cin, stmp);
     for(int i = 0; i < turnID; i++) {
         getline(cin, stmp);
