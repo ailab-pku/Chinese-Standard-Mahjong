@@ -10,7 +10,8 @@
 #include "jsoncpp/json.h"
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
-#include "fan_calculator.h"
+#include "MahjongGB/fan_calculator.cpp"
+#include "MahjongGB/shanten.cpp"
 
 using namespace std;
 
@@ -87,11 +88,11 @@ int checkHu(int player, bool finish) {
     mahjong::fan_table_t fan_table;
     memset(&calculate_param, 0, sizeof(mahjong::calculate_param_t));
     memset(&fan_table, 0, sizeof(mahjong::fan_table_t));
-    calculate_param.hand_tiles.tile_count = playerData[player].tile.size();
+    calculate_param.hand_tiles.tile_count = (int) playerData[player].tile.size();
     for(unsigned int i = 0; i < playerData[player].tile.size(); i++) {
         calculate_param.hand_tiles.standing_tiles[i] = str2tile[playerData[player].tile[i]];
     }
-    calculate_param.hand_tiles.pack_count = playerData[player].pack.size();
+    calculate_param.hand_tiles.pack_count = (int) playerData[player].pack.size();
     for(unsigned int i = 0; i < playerData[player].pack.size(); i++) {
         PlayerData::Pack &sPack = playerData[player].pack[i];
         mahjong::pack_t &dPack = calculate_param.hand_tiles.fixed_packs[i];
@@ -107,7 +108,7 @@ int checkHu(int player, bool finish) {
     if(player == 0) {
         //carr << playerData[player].flower.size();
     }
-    calculate_param.flower_count = playerData[player].flower.size();
+    calculate_param.flower_count = (int) playerData[player].flower.size();
     if(roundStage == player) {
         calculate_param.win_flag |= WIN_FLAG_SELF_DRAWN;
     }
@@ -231,6 +232,9 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
                 if(playerData[player].pack[i].type == "PENG" &&
                         playerData[player].pack[i].tile == lastTile) {
                     playerData[player].pack[i].type = "GANG";
+                    auto it = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
+                    playerData[player].tile.erase(it);
+                    shownTile[lastTile] = 4;
                     roundStage = player + 8;
                     return;
                 }
@@ -601,7 +605,7 @@ int main()
         quan=rand()%4;
     }
 
-    outputValue["display"]["strlen"] = str.length();
+    outputValue["display"]["strlen"] = (int) str.length();
     if (str.length() == 0) {
         random_shuffle(tileWall.begin(), tileWall.end());
         str = "";
@@ -642,7 +646,7 @@ int main()
         outputValue["display"]["canHu"][i] = -4;
     }
     roundOutput(outputValue);
-    outputValue["display"]["tileCnt"] = tileWall.size();
+    outputValue["display"]["tileCnt"] = (int) tileWall.size();
     cout << outputValue;
     return 0;
 }
