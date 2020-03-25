@@ -10,7 +10,9 @@ Note: We have already provided these libraries (fan calculators) in Botzone runt
 
 ***For C++ fan calculator to work, please choose "G++ 7.2.0 with many lib" as compiler on Botzone.***
 
-If you'd rather use interfaces provided by https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm , you may include cpp files as shown below:
+OR
+
+If you'd rather use interfaces provided by https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm , you may include cpp files as shown below (Please choose the default compiler on Botzone if this is the case):
 ```
 #include "MahjongGB/fan_calculator.cpp"
 #include "MahjongGB/shanten.cpp"
@@ -28,7 +30,9 @@ Python请参阅Mahjong-GB-Python
 
 ***如使用 C++ 的算番库，请在创建 Bot 时选择 "G++ 7.2.0 with many lib" 作为编译器。***
 
-如果你希望直接使用 https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm 的接口，可以通过如下方式引入对应的文件：
+或者
+
+如果你希望直接使用 https://github.com/summerinsects/ChineseOfficialMahjongHelper/tree/master/Classes/mahjong-algorithm 的接口，可以通过如下方式引入对应的文件（此时在 Botzone 上请使用默认编译器）：
 ```
 #include "MahjongGB/fan_calculator.cpp"
 #include "MahjongGB/shanten.cpp"
