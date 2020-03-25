@@ -24,14 +24,16 @@ int main()
     string stmp;
 #if SIMPLEIO
     cin >> turnID;
+    turnID--;
+    getline(cin, stmp);
     for(int i = 0; i < turnID; i++) {
-        cin >> stmp;
-        request.push_back(tmp);
-        cin >> stmp;
-        response.push_back(tmp);
+        getline(cin, stmp);
+        request.push_back(stmp);
+        getline(cin, stmp);
+        response.push_back(stmp);
     }
-    cin >> stmp;
-    request.push_back(tmp);
+    getline(cin, stmp);
+    request.push_back(stmp);
 #else
     Json::Value inputJSON;
     cin >> inputJSON;

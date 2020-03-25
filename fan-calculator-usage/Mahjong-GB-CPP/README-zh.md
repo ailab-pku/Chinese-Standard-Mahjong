@@ -4,6 +4,7 @@ Mahjong Fan Calculator CPP
 README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README.md)|[中文](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/Mahjong-GB-CPP/README-zh.md)
 
 
+***提交Bot的时候请选择 "G++ 7.2.0 with many lib"。***
 
 ```cpp
 // 参考test.cpp

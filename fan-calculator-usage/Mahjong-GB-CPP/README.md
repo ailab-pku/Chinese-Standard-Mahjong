@@ -5,6 +5,8 @@ README:[English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/mast
 
 The usage is shown in test.cpp
 
+***Please choose "G++ 7.2.0 with many lib" as compiler on Botzone.***
+
 ```cpp
 #include "MahjongGB/MahjongGB.h"
 
