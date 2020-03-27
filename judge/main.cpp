@@ -579,13 +579,15 @@ int main()
 
     string str = "";
     if (inputValue["initdata"].isObject()) {
-        if(inputValue["initdata"]["srand"].isUInt()) {
-            randSeed = inputValue["initdata"]["srand"].asUInt();
+        if(inputValue["initdata"]["srand"].isInt()) {
+            randSeed = inputValue["initdata"]["srand"].asInt();
         }
         srand(randSeed);
 
-        if(inputValue["initdata"]["quan"].isUInt()) {
-            quan = inputValue["initdata"]["quan"].asUInt();
+        if(inputValue["initdata"]["quan"].isInt()) {
+            quan = inputValue["initdata"]["quan"].asInt();
+            if (quan < 0 || quan > 3)
+                quan=rand()%4;
         }
         else {
             quan=rand()%4;
