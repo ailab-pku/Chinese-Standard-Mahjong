@@ -49,6 +49,10 @@ bool lastBUGANG = false;
 bool currBUGANG = false;
 //当前回合是否为补杠
 //与抢杠和 杠上开花有关
+bool lastGANG = false;
+bool currGANG = false;
+bool lastANGANG = false;
+bool currANGANG = false;
 
 int roundStage = -2;
 //-2:通知位置
@@ -105,9 +109,6 @@ int checkHu(int player, bool finish) {
         }
     }
     calculate_param.win_tile = str2tile[lastTile];
-    if(player == 0) {
-        //carr << playerData[player].flower.size();
-    }
     calculate_param.flower_count = (int) playerData[player].flower.size();
     if(roundStage == player) {
         calculate_param.win_flag |= WIN_FLAG_SELF_DRAWN;
@@ -118,7 +119,7 @@ int checkHu(int player, bool finish) {
     if(shownTile[lastTile] == 3) {
         calculate_param.win_flag |= WIN_FLAG_4TH_TILE;
     }
-    if(lastBUGANG) {
+    if(lastBUGANG || lastANGANG || currGANG) {
         calculate_param.win_flag |= WIN_FLAG_ABOUT_KONG;
     }
     calculate_param.prevalent_wind = (mahjong::wind_t)quan;
@@ -157,7 +158,7 @@ int checkHu(int player, bool finish) {
                 } else if(roundStage == i + 4) {
                     outputValue["display"]["score"][i] = -(8 + re);
                     outputValue["content"][to_string(i)] = -(8 + re);
-                } else if(roundStage == i + 8 && lastBUGANG) {
+                } else if(roundStage == i + 8 && (lastBUGANG || lastANGANG)) { // 自杠 杠上开花
                     outputValue["display"]["score"][i] = -(8 + re);
                     outputValue["content"][to_string(i)] = -(8 + re);
                 } else {
@@ -224,10 +225,14 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
                 playerData[player].tile.erase(curr);
             }
             playerData[player].pack.push_back(PlayerData::Pack("GANG", lastTile, player));
+            shownTile[lastTile] = 4;
+            lastOp = "GANG";
+            currANGANG = true;
+			currGANG = lastGANG = currBUGANG = lastBUGANG = false;
             roundStage = player + 8;
             return;
         } else if(outputList[0] == "BUGANG") {
-            currBUGANG = true;
+            currBUGANG = 41; // TODO: The parameter has no meaning ... to be checks
             for(unsigned int i = 0; i < playerData[player].pack.size(); i++) {
                 if(playerData[player].pack[i].type == "PENG" &&
                         playerData[player].pack[i].tile == lastTile) {
@@ -235,6 +240,8 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
                     auto it = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
                     playerData[player].tile.erase(it);
                     shownTile[lastTile] = 4;
+                    lastOp = "BUGANG";
+                    currANGANG = lastANGANG = currGANG = lastGANG = false;
                     roundStage = player + 8;
                     return;
                 }
@@ -277,8 +284,10 @@ bool checkInputPLAY2(const Json::Value &playerOutput, int player)
                 }
                 playerData[player].tile.erase(curr);
             }
-            shownTile[lastTile] += 4;
+            shownTile[lastTile] = 4;
             lastOp = "GANG";
+            currGANG = true;
+			lastBUGANG = currBUGANG = lastANGANG = currANGANG = false;
             playerData[player].pack.push_back(PlayerData::Pack("GANG", lastTile, roundStage % 4));
             roundStage = player + 8;
             return true;
@@ -463,7 +472,7 @@ void roundOutput(Json::Value &outputValue)
         }
     } else {
         string cOp = "GANG";
-        if(lastBUGANG) {
+        if(lastOp != "GANG" && lastBUGANG) {
             cOp = "BUGANG " + lastTile;
             for(int i = 0; i < 4; i++) {
                 if(roundStage % 4 != i) {
@@ -471,7 +480,7 @@ void roundOutput(Json::Value &outputValue)
                 }
             }
         }
-        outputValue["display"]["action"] = lastBUGANG ? "BUGANG" : "GANG";
+        outputValue["display"]["action"] = lastOp == "GANG" ? "GANG" : "BUGANG";
         outputValue["display"]["player"] = roundStage % 4;
         outputValue["display"]["tile"] = lastTile;
         for(int i = 0; i < 4; i++) {
@@ -495,7 +504,9 @@ void roundInput(Json::Value &inputValue)
             }
         }
         lastBUGANG = currBUGANG;
-        currBUGANG = false;
+		lastGANG = currGANG;
+		lastANGANG = currANGANG;
+		currBUGANG = currGANG = currANGANG = false;
     } else if(roundStage >= 4 && roundStage < 8) {
         for(int i = 0; i < 4; i++) {
             if(roundStage == i + 4) {
@@ -587,7 +598,7 @@ int main()
         if(inputValue["initdata"]["quan"].isInt()) {
             quan = inputValue["initdata"]["quan"].asInt();
             if (quan < 0 || quan > 3)
-                quan=rand()%4;
+                quan = rand() % 4;
         }
         else {
             quan=rand()%4;
