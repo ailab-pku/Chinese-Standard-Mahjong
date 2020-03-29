@@ -139,7 +139,7 @@ int checkHu(int player, bool finish) {
                 outputValue["display"]["fan"].append(cFan);
             }
         }
-        if(re < 8) {
+        if(re < (8 + (int)playerData[player].flower.size())) {
             playerError(player, "WH");
         }
         for(int i = 0; i < 4; i++) {
@@ -225,14 +225,12 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
                 playerData[player].tile.erase(curr);
             }
             playerData[player].pack.push_back(PlayerData::Pack("GANG", lastTile, player));
-            shownTile[lastTile] = 4;
             lastOp = "GANG";
             currANGANG = true;
 			currGANG = lastGANG = currBUGANG = lastBUGANG = false;
             roundStage = player + 8;
             return;
         } else if(outputList[0] == "BUGANG") {
-            currBUGANG = 41; // TODO: The parameter has no meaning ... to be checks
             for(unsigned int i = 0; i < playerData[player].pack.size(); i++) {
                 if(playerData[player].pack[i].type == "PENG" &&
                         playerData[player].pack[i].tile == lastTile) {
@@ -241,6 +239,7 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
                     playerData[player].tile.erase(it);
                     shownTile[lastTile] = 4;
                     lastOp = "BUGANG";
+                    currBUGANG = true;
                     currANGANG = lastANGANG = currGANG = lastGANG = false;
                     roundStage = player + 8;
                     return;
@@ -541,7 +540,7 @@ void roundInput(Json::Value &inputValue)
 int main()
 {
 #if 0
-    freopen("in.txt", "r", stdin);
+    freopen("data.json", "r", stdin);
 #endif
     cin >> inputValue;
     for(int i = 1; i <= 9; i++) {
