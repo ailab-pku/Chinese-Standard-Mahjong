@@ -507,13 +507,14 @@ void roundInput(Json::Value &inputValue)
 		lastANGANG = currANGANG;
 		currBUGANG = currGANG = currANGANG = false;
     } else if(roundStage >= 4 && roundStage < 8) {
-        for(int i = 0; i < 4; i++) {
-            if(roundStage == i + 4) {
-                checkInputPASS(inputValue[to_string(i)], i);
-            } else {
-                checkInputPLAY1(inputValue[to_string(i)], i);
-            }
-        }
+        for (int i = 0; i < 4; i++) {
+			if (i == 0) {
+				checkInputPASS(inputValue[to_string(roundStage % 4)], roundStage % 4);
+			}
+			else {
+				checkInputPLAY1(inputValue[to_string((roundStage + i) % 4)], (roundStage + i) % 4);
+			}
+		}
         bool pass = true;
         for(int i = 0; i < 4; i++) {
             if(pass && roundStage != i + 4) {
@@ -531,7 +532,7 @@ void roundInput(Json::Value &inputValue)
         }
     } else {
         for(int i = 0; i < 4; i++) {
-            checkInputGANG(inputValue[to_string(i)], i);
+            checkInputGANG(inputValue[to_string((roundStage + i) % 4)], (roundStage + i) % 4);
         }
         roundStage -= 8;
     }
