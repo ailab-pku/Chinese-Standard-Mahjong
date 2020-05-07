@@ -455,6 +455,9 @@ void roundOutput(Json::Value &outputValue)
             outputValue["display"]["canHu"][roundStage] = checkHu(roundStage, false);
         }
     } else if(roundStage >= 4 && roundStage < 8) {
+        if(tileWall.empty() && (lastOp == "CHI" || lastOp == "PENG")) { // 当牌墙为空时，不能进行吃碰行为
+            playerError(roundStage % 4, "WA"); 
+        }
         outputValue["display"]["action"] = lastOp;
         outputValue["display"]["player"] = roundStage % 4;
         outputValue["display"]["tile"] = lastTile;
@@ -470,6 +473,9 @@ void roundOutput(Json::Value &outputValue)
             outputValue["display"]["canHu"][i] = checkHu(i, false);
         }
     } else {
+        if(tileWall.empty() && (lastOp == "GANG" || lastOp == "BUGANG")) { // 当牌墙为空时，不能进行杠行为
+            playerError(roundStage % 4, "WA");
+        }
         string cOp = "GANG";
         if(lastOp != "GANG" && lastBUGANG) {
             cOp = "BUGANG " + lastTile;
