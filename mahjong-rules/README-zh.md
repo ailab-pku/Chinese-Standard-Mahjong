@@ -15,3 +15,5 @@ README: [English](https://github.com/ailab-pku/Chinese-Standard-Mahjong/tree/mas
 4. [《中国麻将竞赛规则试行》问答——作者：杜维忠.pdf](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/mahjong-rules/%E3%80%8A%E4%B8%AD%E5%9B%BD%E9%BA%BB%E5%B0%86%E7%AB%9E%E8%B5%9B%E8%A7%84%E5%88%99%E8%AF%95%E8%A1%8C%E3%80%8B%E9%97%AE%E7%AD%94%E2%80%94%E2%80%94%E4%BD%9C%E8%80%85%EF%BC%9A%E6%9D%9C%E7%BB%B4%E5%BF%A0.pdf)：对中国麻将竞赛规则试行的官方补充说明。
 
 5. [国标麻将AI设计.pdf](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/mahjong-rules/%E5%9B%BD%E6%A0%87%E9%BA%BB%E5%B0%86AI%E8%AE%BE%E8%AE%A1.pdf)：课程习题课课件，主要为解释数据集，以及建模分析
+
+6. [IJCAI2020麻将比赛复式赛制介绍.pdf](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/mahjong-rules/IJCAI2020%E9%BA%BB%E5%B0%86%E6%AF%94%E8%B5%9B%E5%A4%8D%E5%BC%8F%E8%B5%9B%E5%88%B6%E4%BB%8B%E7%BB%8D.pdf)：本次比赛所用赛制规则介绍
