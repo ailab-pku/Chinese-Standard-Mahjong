@@ -558,7 +558,10 @@ void roundInput(Json::Value &inputValue)
 
 int main()
 {
-#if 0
+#ifdef _BOTZONE_ONLINE
+    // 在botzone环境中
+#else
+    // 不在botzone环境中
 	freopen("data.json", "r", stdin);
 #endif
 	cin >> inputValue;
