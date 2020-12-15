@@ -204,10 +204,7 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
 		playerData[player].tile.push_back(lastTile);
 		lastTile = outputList[1];
 		if(outputList[0] == "PLAY") {
-			vector<string>::iterator curr = find(
-				playerData[player].tile.begin(),
-				playerData[player].tile.end(),
-				lastTile);
+			auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 			if(curr != playerData[player].tile.end()) {
 				playerData[player].tile.erase(curr);
 				lastOp = "PLAY";
@@ -219,10 +216,7 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
 				playerError(player, "WA");
 			}
 			for(int i = 0; i < 4; i++) {
-				vector<string>::iterator curr = find(
-					playerData[player].tile.begin(),
-					playerData[player].tile.end(),
-					lastTile);
+				auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 				if(curr == playerData[player].tile.end()) {
 					playerError(player, "WA");
 				}
@@ -243,6 +237,9 @@ void checkInputDRAW(const Json::Value &playerOutput, int player)
 						playerData[player].pack[i].tile == lastTile) {
 					playerData[player].pack[i].type = "GANG";
 					auto it = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
+					if(it == playerData[player].tile.end()) {
+						playerError(player, "WA");
+					}
 					playerData[player].tile.erase(it);
 					shownTile[lastTile] = 4;
 					lastOp = "BUGANG";
@@ -281,10 +278,7 @@ bool checkInputPLAY2(const Json::Value &playerOutput, int player)
 			return false;
 		}else if(outputList[0] == "GANG") {
 			for(int i = 0; i < 3; i++) {
-				vector<string>::iterator curr = find(
-					playerData[player].tile.begin(),
-					playerData[player].tile.end(),
-					lastTile);
+				auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 				if(curr == playerData[player].tile.end()) {
 					playerError(player, "WA");
 				}
@@ -302,10 +296,7 @@ bool checkInputPLAY2(const Json::Value &playerOutput, int player)
 	} else if(outputList.size() == 2) {
 		if(outputList[0] == "PENG") {
 			for(int i = 0; i < 2; i++) {
-				vector<string>::iterator curr = find(
-					playerData[player].tile.begin(),
-					playerData[player].tile.end(),
-					lastTile);
+				auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 				if(curr == playerData[player].tile.end()) {
 					playerError(player, "WA");
 				}
@@ -315,10 +306,7 @@ bool checkInputPLAY2(const Json::Value &playerOutput, int player)
 			lastOp = "PENG";
 			playerData[player].pack.push_back(PlayerData::Pack("PENG", lastTile, roundStage % 4));
 			lastTile = outputList[1];
-			vector<string>::iterator curr = find(
-				playerData[player].tile.begin(),
-				playerData[player].tile.end(),
-				lastTile);
+			auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 			if(curr == playerData[player].tile.end()) {
 				playerError(player, "WA");
 			}
@@ -353,10 +341,7 @@ bool checkInputPLAY3(const Json::Value &playerOutput, int player)
 		c[1]--;
 		for(int i = -1; i <= 1; i++) {
 			shownTile[c]++;
-			vector<string>::iterator curr = find(
-				playerData[player].tile.begin(),
-				playerData[player].tile.end(),
-				c);
+			auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), c);
 			if(curr == playerData[player].tile.end()) {
 				playerError(player, "WA");
 			}
@@ -367,10 +352,7 @@ bool checkInputPLAY3(const Json::Value &playerOutput, int player)
 		tileCHI = outputList[1];
 		playerData[player].pack.push_back(PlayerData::Pack("CHI", tileCHI, lastTile[1] - outputList[1][1] + 1));
 		lastTile = outputList[2];
-		vector<string>::iterator curr = find(
-			playerData[player].tile.begin(),
-			playerData[player].tile.end(),
-			lastTile);
+		auto curr = find(playerData[player].tile.begin(), playerData[player].tile.end(), lastTile);
 		if(curr == playerData[player].tile.end()) {
 			playerError(player, "WA");
 		}
