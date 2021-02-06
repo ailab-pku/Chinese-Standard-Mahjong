@@ -41,11 +41,12 @@ static PyObject *oMahjongFanCalculator(PyObject *self, PyObject *args)
         PyErr_SetString(PyExc_Exception, error.c_str());
         return NULL;
     }
-    PyObject *oAns = PyList_New(0);
-    for(auto i : ans){
-        PyList_Append(oAns,PyTuple_Pack(2, PyLong_FromLong(i.first),PyUnicode_FromString(i.second.c_str())));
+    PyObject *oAns = PyTuple_New(ans.size());
+    for(unsigned int i = 0; i < ans.size(); i++){
+        PyObject *oAnsItem = Py_BuildValue("(NN)", PyLong_FromLong(ans[i].first), PyUnicode_FromString(ans[i].second.c_str()));
+        PyTuple_SetItem(oAns, i, oAnsItem);
     }
-    return PyList_AsTuple(oAns);
+    return oAns;
 }
 static PyMethodDef mahjongMethods[]={
     {"MahjongFanCalculator", oMahjongFanCalculator,METH_VARARGS,""},
