@@ -31,8 +31,10 @@ static const char *doc = "Calculate Mahjong Fans.\n"
 "\tisWallLast - bool indicate wall last;\n"
 "\tseatWind - seat wind of 0..3 indicate east/south/west/north;\n"
 "\tprevalentWind - prevalent wind of 0..3 indicate east/south/west/north.\n"
+"\tverbose - (Optional) bool control return format, default to be False.\n"
 "Returns:\n"
 "\tA tuple of fans, each of which is a tuple of form (fan_count, fan_name).\n"
+"\tIf verbose is set to be True, form (fan_point, cnt, fan_name, fan_name_en) is used instead.\n"
 "Raises:"
 "\tTypeError - If any invalid input is encountered.\n";
 
@@ -41,13 +43,13 @@ static PyObject *MahjongFanCalculator(PyObject *self, PyObject *args, PyObject *
 		// Parse arguments
 		static char *kwlist[] = {"pack", "hand", "winTile", "flowerCount"
 			, "isSelfDrawn", "is4thTile", "isAboutKong", "isWallLast"
-			, "seatWind", "prevalentWind", nullptr};
+			, "seatWind", "prevalentWind", "verbose", nullptr};
 		PyObject *packs = nullptr, *hands = nullptr;
 		const char *winTile = nullptr;
-		int flowerCount, isSelfDrawn, is4thTile, isAboutKong, isWallLast, seatWind, prevalentWind;
-		if(!PyArg_ParseTupleAndKeywords(args, kwargs, "OOsippppii", kwlist
+		int flowerCount, isSelfDrawn, is4thTile, isAboutKong, isWallLast, seatWind, prevalentWind, verbose = 0;
+		if(!PyArg_ParseTupleAndKeywords(args, kwargs, "OOsippppii|p", kwlist
 			, &packs, &hands, &winTile, &flowerCount
-			, &isSelfDrawn, &is4thTile, &isAboutKong, &isWallLast, &seatWind, &prevalentWind))
+			, &isSelfDrawn, &is4thTile, &isAboutKong, &isWallLast, &seatWind, &prevalentWind, &verbose))
 			return nullptr;
 		// Prepare params
 		mahjong::calculate_param_t calculate_param = {};
@@ -108,7 +110,9 @@ static PyObject *MahjongFanCalculator(PyObject *self, PyObject *args, PyObject *
 		l = 0;
 		for(int i = 0; i < mahjong::FAN_TABLE_SIZE; i++)
 			if(fan_table[i]) {
-				PyObject *item = Py_BuildValue("(is)", mahjong::fan_value_table[i] * fan_table[i], mahjong::fan_name[i]);
+				PyObject *item;
+				if(!verbose) item = Py_BuildValue("is", mahjong::fan_value_table[i] * fan_table[i], mahjong::fan_name[i]);
+				else item = Py_BuildValue("iiss", mahjong::fan_value_table[i], fan_table[i], mahjong::fan_name[i], mahjong::fan_name_en[i]);
 				PyTuple_SetItem(ans, l++, item);
 			}
 		return ans;

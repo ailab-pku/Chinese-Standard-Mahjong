@@ -17,7 +17,8 @@ from MahjongGB import MahjongFanCalculator
     isAboutKong = bool,
     isWallLast = bool,
     seatWind = int 0..3,
-    prevalentWind = int 0..3)
+    prevalentWind = int 0..3,
+	[optional, default = False]verbose = bool)
 ```
 
 - pack: The declared tiles. A tuple of tuples of three elements each: packType of "PENG"/"GANG"/"CHI", tileCode and offer. Click [here](https://github.com/ailab-pku/Chinese-Standard-Mahjong/blob/master/fan-calculator-usage/ChineseOfficialMahjongHelper/Classes/mahjong-algorithm/README.md) for details.
@@ -30,4 +31,5 @@ from MahjongGB import MahjongFanCalculator
 - isWallLast: Whether the winning tile is the last one in tile wall. If self-drawn, it is Last Tile Draw. Otherwise, it is Last Tile Claim.
 - seatWind: Seat wind. The number 0, 1, 2, 3 represent East, South, West, and North respectively.
 - prevalentWind: Prevalent wind. The number 0, 1, 2, 3 represent East, South, West, and North respectively.
+- verbose: Default to False. If set to True, return format is (fan_point, cnt, fan_name, fan_name_en) instead of (fan_count, fan_name).
 - return: This function returns a tuple of tuples of two elements each: the fan count and fan name of each fan.

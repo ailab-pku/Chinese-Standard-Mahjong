@@ -17,7 +17,8 @@ from MahjongGB import MahjongFanCalculator
     isAboutKong = bool,
     isWallLast = bool,
     seatWind = int 0..3,
-    prevalentWind = int 0..3)
+    prevalentWind = int 0..3,
+	[optional, default = False]verbose = bool)
 ```
 
 - pack（tuple套tuple）:玩家的明牌，每组packType（string）为"PENG" "GANG" "CHI" 三者之一，tileCode（string）为牌代码（吃牌表示中间牌代码），offer（int）碰、杠时表示上家、对家、下家供牌，吃时123表示第几张是上家供牌。
@@ -30,4 +31,5 @@ from MahjongGB import MahjongFanCalculator
 - isWallLast（bool）:是否为牌墙最后一张，复合自摸为妙手回春，否则为海底捞月
 - seatWind（int）:门风，0123表示东南西北
 - prevalentWind（int）:圈风，0123表示东南西北
+- verbose（bool，默认值为False）:用来控制返回格式，如果设置为True，返回形式为每个番型的(点数、次数、中文名、英文名)
 - 返回值（tuple套tuple）:每组int表示番数，求和为总番数，string是每个番形的描述

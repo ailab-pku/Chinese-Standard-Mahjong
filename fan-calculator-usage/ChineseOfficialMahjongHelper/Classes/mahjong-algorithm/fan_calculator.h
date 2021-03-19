@@ -218,12 +218,10 @@ typedef uint16_t fan_table_t[FAN_TABLE_SIZE];
  */
 int calculate_fan(const calculate_param_t *calculate_param, fan_table_t *fan_table);
 
-#if 0
-
 /**
  * @brief 番名（英文）
  */
-static const char *fan_name[] = {
+static const char *fan_name_en[] = {
     "None",
     "Big Four Winds", "Big Three Dragons", "All Green", "Nine Gates", "Four Kongs", "Seven Shifted Pairs", "Thirteen Orphans",
     "All Terminals", "Little Four Winds", "Little Three Dragons", "All Honors", "Four Concealed Pungs", "Pure Terminal Chows",
@@ -243,8 +241,6 @@ static const char *fan_name[] = {
     , "Concealed Kong and Melded Kong"
 #endif
 };
-
-#else
 
 #ifdef _MSC_VER
 #pragma execution_character_set("utf-8")
@@ -286,8 +282,6 @@ static const char *fan_name[] = {
     , __UTF8("明暗杠")
 #endif
 };
-
-#endif
 
 /**
  * @brief 番值
